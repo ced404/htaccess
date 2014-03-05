@@ -1,0 +1,33 @@
+RewriteEngine on
+
+# rester sur le www
+
+RewriteCond %{HTTP_HOST} ^anamorphik.com$ [NC]
+RewriteRule ^(.*)$ http://www.anamorphik.com/$1 [R=301,L]
+
+
+
+# mvc router
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^(.*)$ index.php?$1 [QSA,NC,L]
+
+
+
+# Redirections permanentes
+
+# 	- première URL  : pas de / de début
+#	- deuxième URL : absolue ou relative
+# 	- [R=permanent,L] : redirection permanente, les RewriteRule suivants ne seront pas utilisés (si celle-ci est exécutée)
+#
+RewriteRule ^some-dir/test.asp(.*) /testpage.php$1 [R=permanent,L]
+RewriteRule ^old/dir/test.asp(.*) /testpage.php$1 [R=permanent,L]
+
+
+
+# (security) disable TRACE and TRACK HTTP methods
+
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+
