@@ -1,0 +1,44 @@
+# browser cache - 1 year
+# static resources - images, pdf, js, css, flash
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)(\.gz)?$">
+	Header set Cache-Control "max-age=2592000, public"
+	Header set Expires "Wed, 8 Oct 2014 20:00:00 GMT"
+	Header unset ETag
+	FileETag None
+</FilesMatch>
+
+# browser cache with mod_expires - 1 month
+# static resources (html, images, fonts)
+<ifModule mod_expires.c>
+	ExpiresActive On
+	ExpiresDefault "access plus 2592000 seconds"
+	ExpiresByType text/html "access plus 2592000 seconds"
+	ExpiresByType image/gif "access plus 2592000 seconds"
+	ExpiresByType image/jpeg "access plus 2592000 seconds"
+	ExpiresByType image/jpg "access plus 2592000 seconds"
+	ExpiresByType image/png "access plus 2592000 seconds"
+	ExpiresByType image/ico"access plus 2592000 seconds"
+	ExpiresByType image/ico"access plus 2592000 seconds"
+	ExpiresByType text/css "access plus 2592000 seconds"
+	ExpiresByType text/javascript "access plus 2592000 seconds"
+	ExpiresByType application/x-javascript "access plus 2592000 seconds"
+	ExpiresByType application/font-woff "access plus 2592000 seconds"
+	ExpiresByType font/opentype "access plus 2592000 seconds"
+	ExpiresByType application/x-font-opentype "access plus 2592000 seconds"
+	ExpiresByType image/svg+xml "access plus 2592000 seconds"
+	ExpiresByType application/x-font-ttf "access plus 2592000 seconds"
+	ExpiresByType application/x-font-truetype "access plus 2592000 seconds"
+	ExpiresByType application/vnd.ms-fontobject "access plus 2592000 seconds"
+</ifModule>
+
+# gzip compression
+<ifModule mod_gzip.c>
+	mod_gzip_on Yes
+	mod_gzip_dechunk Yes
+	mod_gzip_item_include file \.(html?|txt|css|js|php|pl|woff)$
+	mod_gzip_item_include handler ^cgi-script$
+	mod_gzip_item_include mime ^text/.*
+	mod_gzip_item_include mime ^application/x-javascript.*
+	mod_gzip_item_exclude mime ^image/.*
+	mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</ifModule>
