@@ -8,6 +8,11 @@ AddCharset UTF-8 .txt
 AddCharset UTF-8 .xml
 AddCharset UTF-8 .svg
 
+AddType application/vnd.ms-fontobject .eot
+AddType font/ttf .ttf
+AddType font/otf .otf
+AddType application/x-font-woff woff
+
 SetEnv PHP_VER 5_3
 SetEnv short_open_tag 1
 SetEnv REGISTER_GLOBALS 0
