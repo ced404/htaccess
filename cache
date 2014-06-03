@@ -10,24 +10,24 @@
 	ExpiresByType image/png "access plus 1 year"
 	ExpiresByType image/ico "access plus 1 year"
 	ExpiresByType image/x-icon "access plus 1 year"
+	ExpiresByType image/svg+xml "access plus 1 year"
+	
+	ExpiresByType application/font-woff "access plus 1 year"
+	ExpiresByType font/opentype "access plus 1 year"
+	ExpiresByType application/x-font-opentype "access plus 1 year"
+	ExpiresByType application/x-font-ttf "access plus 1 year"
+	ExpiresByType application/x-font-truetype "access plus 1 year"
+	ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
 	
 	ExpiresByType text/x-javascript "access plus 1 month"
 	ExpiresByType text/css "access plus 1 month"
 	
-	ExpiresByType application/x-javascript "access plus 2592000 seconds"
-	ExpiresByType application/font-woff "access plus 2592000 seconds"
-	ExpiresByType font/opentype "access plus 2592000 seconds"
-	ExpiresByType application/x-font-opentype "access plus 2592000 seconds"
-	ExpiresByType image/svg+xml "access plus 2592000 seconds"
-	ExpiresByType application/x-font-ttf "access plus 2592000 seconds"
-	ExpiresByType application/x-font-truetype "access plus 2592000 seconds"
-	ExpiresByType application/vnd.ms-fontobject "access plus 2592000 seconds"
 	ExpiresByType application/pdf "access plus 1 month"
 	ExpiresByType application/x-shockwave-flash "access plus 1 month"
 	
-	ExpiresDefault "access plus 2 days"
+	ExpiresDefault "access plus 1 day"
+	ExpiresByType text/cache-manifest "access plus 0 seconds"
 </IfModule>
-## EXPIRES CACHING ##
 
 
 
@@ -41,31 +41,6 @@
 	FileETag None
 </FilesMatch>
 
-
-# browser cache with mod_expires - 1 month
-# static resources (html, images, fonts)
-
-<ifModule mod_expires.c>
-	ExpiresActive On
-	ExpiresDefault "access plus 2592000 seconds"
-	ExpiresByType text/html "access plus 3600 seconds"
-	ExpiresByType image/gif "access plus 2592000 seconds"
-	ExpiresByType image/jpeg "access plus 2592000 seconds"
-	ExpiresByType image/jpg "access plus 2592000 seconds"
-	ExpiresByType image/png "access plus 2592000 seconds"
-	ExpiresByType image/ico "access plus 2592000 seconds"
-	ExpiresByType image/ico "access plus 2592000 seconds"
-	ExpiresByType text/css "access plus 2592000 seconds"
-	ExpiresByType text/javascript "access plus 2592000 seconds"
-	ExpiresByType application/x-javascript "access plus 2592000 seconds"
-	ExpiresByType application/font-woff "access plus 2592000 seconds"
-	ExpiresByType font/opentype "access plus 2592000 seconds"
-	ExpiresByType application/x-font-opentype "access plus 2592000 seconds"
-	ExpiresByType image/svg+xml "access plus 2592000 seconds"
-	ExpiresByType application/x-font-ttf "access plus 2592000 seconds"
-	ExpiresByType application/x-font-truetype "access plus 2592000 seconds"
-	ExpiresByType application/vnd.ms-fontobject "access plus 2592000 seconds"
-</ifModule>
 
 
 # gzip compression
@@ -82,9 +57,3 @@
 </ifModule>
 
 
-# manifest firefox fix
-
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType text/cache-manifest "access plus 0 seconds"
-</IfModule>
