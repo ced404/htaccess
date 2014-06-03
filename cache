@@ -31,18 +31,6 @@
 
 
 
-# browser cache - 1 year
-# static resources - images, pdf, js, css, flash
-
-<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)(\.gz)?$">
-	Header set Cache-Control "max-age=2592000, public"
-	Header set Expires "Wed, 18 Dec 2015 20:00:00 GMT"
-	Header unset ETag
-	FileETag None
-</FilesMatch>
-
-
-
 # gzip compression
 
 <ifModule mod_gzip.c>
