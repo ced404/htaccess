@@ -1,6 +1,9 @@
 
 # http://gtmetrix.com/leverage-browser-caching.html
 
+# nécessaire pour la compression gzip
+SetEnv ZEND_OPTIMIZER 1   
+
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>
 	ExpiresActive On
