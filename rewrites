@@ -18,7 +18,7 @@ RewriteRule ^(.*)$ index.php?$1 [QSA,NC,L]
 # Redirections permanentes simples
 
 RedirectPermanent /old/dir/file /new/file
-
+Redirect 301 /old/dir http://www.lqe.fr/new/dir
 
 
 # Redirections permanentes : avec rewrites
