@@ -15,14 +15,30 @@ RewriteRule ^(.*)$ index.php?$1 [QSA,NC,L]
 
 
 
-# Redirections permanentes
+# Redirections permanentes simples
 
-# 	- première URL  : pas de / de début
-#	- deuxième URL : absolue ou relative
-# 	- [R=permanent,L] : redirection permanente, les RewriteRule suivants ne seront pas utilisés (si celle-ci est exécutée)
-#
+RedirectPermanent /old/dir/file /new/file
+
+
+
+# Redirections permanentes : avec rewrites
+
+#  - première URL  : pas de / de début
+#  - deuxième URL : absolue ou relative
+#  - [R=permanent,L] : redirection permanente, les RewriteRule suivants ne seront pas utilisés (si celle-ci est exécutée)
+
 RewriteRule ^some-dir/test.asp(.*) /testpage.php$1 [R=permanent,L]
 RewriteRule ^old/dir/test.asp(.*) /testpage.php$1 [R=permanent,L]
+
+
+
+# Redirections permanentes : avec paramètres dans l'URL
+
+# tester avec RewriteCond %{QUERY_STRING} si l'URL contient les valeurs recherchées
+# et réécrire l'url de l'ancien script appelé (ex. index.php) vers le nouveau.
+
+RewriteCond %{QUERY_STRING} ^option=com_content&task=view&id=148&Itemid=95$
+RewriteRule index.php /agenda/2-agenda/25-journees-de-l-ecoconstruction? [L,R=301]
 
 
 
