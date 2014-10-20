@@ -61,6 +61,7 @@ FileETag MTime Size
 
 	# other grahics
 
+	ExpiresByType application/x-font-woff "now plus 1 month"
 	ExpiresByType application/font-woff "now plus 1 month"
 	ExpiresByType font/opentype "now plus 1 month"
 	ExpiresByType application/x-font-opentype "now plus 1 month"
