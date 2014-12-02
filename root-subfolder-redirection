@@ -1,0 +1,13 @@
+RewriteEngine on
+
+# www.domain.com -> /www/minisite
+
+RewriteCond %{HTTP_HOST} ^(www.)?domain.com$
+RewriteCond %{REQUEST_URI} !^/minisite/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /minisite/$1
+
+RewriteCond %{HTTP_HOST} ^(www.)?domain.com$
+RewriteRule ^(/)?$ minisite/index.php [L]
+
