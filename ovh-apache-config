@@ -15,6 +15,7 @@ AddType application/x-font-woff woff
 
 SetEnv TZ Europe/Paris
 # SetEnv PHP_VER 5_3 - Prefer 5.4 : http://www.ovh.com/fr/g1175.format_du_point_ovhconfig
+SetEnv PHP_VER 5_4
 SetEnv short_open_tag 1
 SetEnv REGISTER_GLOBALS 0
 SetEnv MAGIC_QUOTES 0
@@ -22,4 +23,3 @@ SetEnv SESSION_USE_TRANS_SID 0
 
 Options -Indexes
 Options +FollowSymLinks
-
